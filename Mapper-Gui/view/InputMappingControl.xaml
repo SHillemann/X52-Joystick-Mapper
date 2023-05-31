@@ -1,0 +1,185 @@
+﻿<UserControl x:Class="Mapper_Gui.view.InputMappingControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Mapper_Gui.view"
+             mc:Ignorable="d" 
+             x:Name="MyInputMappingControl"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <DataGrid ItemsSource="{Binding Mapping}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Type" Binding="{Binding Name}" FontSize="15" CanUserSort="False"/>
+                <DataGridTemplateColumn Header="Mode 1">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical" DataContext="{Binding Mode1}">
+                                <StackPanel.Resources>
+                                    <Style TargetType="{x:Type TextBox}">
+                                        <Setter Property="Margin" Value="10,0,0,0"/>
+                                    </Style>
+                                </StackPanel.Resources>
+                                <StackPanel Orientation="Horizontal" Height="auto">
+                                    <TextBox  Text="{Binding Joy}" Width="20" />
+                                    <TextBox  Text="{Binding Index}" Width="40" />
+                                    <TextBox  TextWrapping="Wrap"  Text="{Binding Description}" Width="100"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Height="25" Margin="0,5,0,5" VerticalAlignment="Bottom">
+                                    <Button Content="Next" Margin="5,0,0,0" Click="Next_Click" Command="{Binding Path=DataContext.NextCommand, ElementName=MyInputMappingControl}" CommandParameter="{Binding Mode=OneWay}" />
+                                    <Button Content="Copy" Margin="5,0,0,0" Click="Copy_Click" Command="{Binding Path=DataContext.CopyCommand, ElementName=MyInputMappingControl}" CommandParameter="{Binding Mode=OneWay}" />
+                                    <Button Content="Switch" Margin="5,0,0,0" Click="Next_Click" Command="{Binding Path=DataContext.SwitchCommand, ElementName=MyInputMappingControl}" CommandParameter="{Binding Mode=OneWay}" />
+                                    <Button Content="To" Margin="5,0,0,0" Click="Next_Click" Command="{Binding Path=DataContext.ToCommand, ElementName=MyInputMappingControl}" CommandParameter="{Binding Mode=OneWay}" />
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Mode 1 [Alt]">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical" DataContext="{Binding Mode1_alt}">
+                                <StackPanel.Resources>
+                                    <Style TargetType="{x:Type TextBox}">
+                                        <Setter Property="Margin" Value="10,0,0,0"/>
+                                    </Style>
+                                </StackPanel.Resources>
+                                <StackPanel Orientation="Horizontal" Height="auto">
+                                    <TextBox  Text="{Binding Joy}" Width="20"/>
+                                    <TextBox  Text="{Binding Index}" Width="40"/>
+                                    <TextBox  TextWrapping="Wrap"  Text="{Binding Description}" Width="100"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Height="25" Margin="0,5,0,5" VerticalAlignment="Bottom">
+                                    <Button Content="Next" Margin="5,0,0,0" Click="Next_Click" Command="{Binding Path=DataContext.NextCommand, ElementName=MyInputMappingControl}" CommandParameter="{Binding Mode=OneWay}" />
+                                    <Button Content="Copy" Margin="5,0,0,0" Click="Copy_Click" Command="{Binding Path=DataContext.CopyCommand, ElementName=MyInputMappingControl}" CommandParameter="{Binding Mode=OneWay}" />
+                                    <Button Content="Switch" Margin="5,0,0,0" Click="Next_Click" Command="{Binding Path=DataContext.SwitchCommand, ElementName=MyInputMappingControl}" CommandParameter="{Binding Mode=OneWay}" />
+                                    <Button Content="To" Margin="5,0,0,0" Click="Next_Click" Command="{Binding Path=DataContext.ToCommand, ElementName=MyInputMappingControl}" CommandParameter="{Binding Mode=OneWay}" />
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Mode 2">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical" DataContext="{Binding Mode2}">
+                                <StackPanel.Resources>
+                                    <Style TargetType="{x:Type TextBox}">
+                                        <Setter Property="Margin" Value="10,0,0,0"/>
+                                    </Style>
+                                </StackPanel.Resources>
+                                <StackPanel Orientation="Horizontal" Height="auto">
+                                    <TextBox  Text="{Binding Joy}" Width="20"/>
+                                    <TextBox  Text="{Binding Index}" Width="40"/>
+                                    <TextBox  TextWrapping="Wrap"  Text="{Binding Description}" Width="100"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Height="25" Margin="0,5,0,5" VerticalAlignment="Bottom">
+                                    <Button Content="Next" Margin="5,0,0,0" Click="Next_Click" Command="{Binding Path=DataContext.NextCommand, ElementName=MyInputMappingControl}" CommandParameter="{Binding Mode=OneWay}" />
+                                    <Button Content="Copy" Margin="5,0,0,0" Click="Copy_Click" Command="{Binding Path=DataContext.CopyCommand, ElementName=MyInputMappingControl}" CommandParameter="{Binding Mode=OneWay}" />
+                                    <Button Content="Switch" Margin="5,0,0,0" Click="Next_Click" Command="{Binding Path=DataContext.SwitchCommand, ElementName=MyInputMappingControl}" CommandParameter="{Binding Mode=OneWay}" />
+                                    <Button Content="To" Margin="5,0,0,0" Click="Next_Click" Command="{Binding Path=DataContext.ToCommand, ElementName=MyInputMappingControl}" CommandParameter="{Binding Mode=OneWay}" />
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Mode 2 [Alt]">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical" DataContext="{Binding Mode2_alt}">
+                                <StackPanel.Resources>
+                                    <Style TargetType="{x:Type TextBox}">
+                                        <Setter Property="Margin" Value="10,0,0,0"/>
+                                    </Style>
+                                </StackPanel.Resources>
+                                <StackPanel Orientation="Horizontal" Height="auto">
+                                    <TextBox  Text="{Binding Joy}" Width="20"/>
+                                    <TextBox  Text="{Binding Index}" Width="40"/>
+                                    <TextBox  TextWrapping="Wrap"  Text="{Binding Description}" Width="100"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Height="25" Margin="0,5,0,5" VerticalAlignment="Bottom">
+                                    <Button Content="Next" Margin="5,0,0,0" Click="Next_Click" Command="{Binding Path=DataContext.NextCommand, ElementName=MyInputMappingControl}" CommandParameter="{Binding Mode=OneWay}" />
+                                    <Button Content="Copy" Margin="5,0,0,0" Click="Copy_Click" Command="{Binding Path=DataContext.CopyCommand, ElementName=MyInputMappingControl}" CommandParameter="{Binding Mode=OneWay}" />
+                                    <Button Content="Switch" Margin="5,0,0,0" Click="Next_Click" Command="{Binding Path=DataContext.SwitchCommand, ElementName=MyInputMappingControl}" CommandParameter="{Binding Mode=OneWay}" />
+                                    <Button Content="To" Margin="5,0,0,0" Click="Next_Click" Command="{Binding Path=DataContext.ToCommand, ElementName=MyInputMappingControl}" CommandParameter="{Binding Mode=OneWay}" />
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Mode 3">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical" DataContext="{Binding Mode3}">
+                                <StackPanel.Resources>
+                                    <Style TargetType="{x:Type TextBox}">
+                                        <Setter Property="Margin" Value="10,0,0,0"/>
+                                    </Style>
+                                </StackPanel.Resources>
+                                <StackPanel Orientation="Horizontal" Height="auto">
+                                    <TextBox  Text="{Binding Joy}" Width="20"/>
+                                    <TextBox  Text="{Binding Index}" Width="40"/>
+                                    <TextBox  TextWrapping="Wrap"  Text="{Binding Description}" Width="100"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Height="25" Margin="0,5,0,5" VerticalAlignment="Bottom">
+                                    <Button Content="Next" Margin="5,0,0,0" Click="Next_Click" Command="{Binding Path=DataContext.NextCommand, ElementName=MyInputMappingControl}" CommandParameter="{Binding Mode=OneWay}" />
+                                    <Button Content="Copy" Margin="5,0,0,0" Click="Copy_Click" Command="{Binding Path=DataContext.CopyCommand, ElementName=MyInputMappingControl}" CommandParameter="{Binding Mode=OneWay}" />
+                                    <Button Content="Switch" Margin="5,0,0,0" Click="Next_Click" Command="{Binding Path=DataContext.SwitchCommand, ElementName=MyInputMappingControl}" CommandParameter="{Binding Mode=OneWay}" />
+                                    <Button Content="To" Margin="5,0,0,0" Click="Next_Click" Command="{Binding Path=DataContext.ToCommand, ElementName=MyInputMappingControl}" CommandParameter="{Binding Mode=OneWay}" />
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Mode 3 [Alt]">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical" DataContext="{Binding Mode3_alt}">
+                                <StackPanel.Resources>
+                                    <Style TargetType="{x:Type TextBox}">
+                                        <Setter Property="Margin" Value="10,0,0,0"/>
+                                    </Style>
+                                </StackPanel.Resources>
+                                <StackPanel Orientation="Horizontal" Height="auto">
+                                    <TextBox  Text="{Binding Joy}" Width="20"/>
+                                    <TextBox  Text="{Binding Index}" Width="40"/>
+                                    <TextBox  TextWrapping="Wrap"  Text="{Binding Description}" Width="100"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Height="25" Margin="0,5,0,5" VerticalAlignment="Bottom">
+                                    <Button Content="Next" Margin="5,0,0,0" Click="Next_Click" Command="{Binding Path=DataContext.NextCommand, ElementName=MyInputMappingControl}" CommandParameter="{Binding Mode=OneWay}" />
+                                    <Button Content="Copy" Margin="5,0,0,0" Click="Copy_Click" Command="{Binding Path=DataContext.CopyCommand, ElementName=MyInputMappingControl}" CommandParameter="{Binding Mode=OneWay}" />
+                                    <Button Content="Switch" Margin="5,0,0,0" Click="Next_Click" Command="{Binding Path=DataContext.SwitchCommand, ElementName=MyInputMappingControl}" CommandParameter="{Binding Mode=OneWay}" />
+                                    <Button Content="To" Margin="5,0,0,0" Click="Next_Click" Command="{Binding Path=DataContext.ToCommand, ElementName=MyInputMappingControl}" CommandParameter="{Binding Mode=OneWay}" />
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Missle">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical" DataContext="{Binding Mode_missle}">
+                                <StackPanel.Resources>
+                                    <Style TargetType="{x:Type TextBox}">
+                                        <Setter Property="Margin" Value="10,0,0,0"/>
+                                    </Style>
+                                </StackPanel.Resources>
+                                <StackPanel Orientation="Horizontal" Height="auto">
+                                    <TextBox  Text="{Binding Joy}" Width="20"/>
+                                    <TextBox  Text="{Binding Index}" Width="40"/>
+                                    <TextBox  TextWrapping="Wrap"  Text="{Binding Description}" Width="100"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Height="25" Margin="0,5,0,5" VerticalAlignment="Bottom">
+                                    <Button Content="Next" Margin="5,0,0,0" Click="Next_Click" Command="{Binding Path=DataContext.NextCommand, ElementName=MyInputMappingControl}" CommandParameter="{Binding Mode=OneWay}" />
+                                    <Button Content="Copy" Margin="5,0,0,0" Click="Copy_Click" Command="{Binding Path=DataContext.CopyCommand, ElementName=MyInputMappingControl}" CommandParameter="{Binding Mode=OneWay}" />
+                                    <Button Content="Switch" Margin="5,0,0,0" Click="Next_Click" Command="{Binding Path=DataContext.SwitchCommand, ElementName=MyInputMappingControl}" CommandParameter="{Binding Mode=OneWay}" />
+                                    <Button Content="To" Margin="5,0,0,0" Click="Next_Click" Command="{Binding Path=DataContext.ToCommand, ElementName=MyInputMappingControl}" CommandParameter="{Binding Mode=OneWay}" />
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </ScrollViewer>
+</UserControl>
